@@ -1,0 +1,31 @@
+{% extends 'hp/base.html' %}
+{% block title %}Enter Application{% endblock %}
+
+{% block body %}
+	
+<div class="container">
+  <form method="post">
+    <div class="row">
+      <h2 style="  text-align:center"><b>Apply for Leave</h2><br>
+
+    {% csrf_token %}
+        <label for="from_date">From Date:</label>
+			<input type="date" id="from_date" name="from_date"> 
+
+		<label for="to_date">To Date:</label>
+			<input type="date" id="to_date" name="to_date"> 
+      <br>
+      <br>
+      <label>Reason:</label>
+      <br>
+      <textarea name="reason" cols="50" rows="20"></textarea>
+      <br>
+      <br>
+      <input type="submit" value="Apply">
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+{% endblock %}

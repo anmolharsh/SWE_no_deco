@@ -1,0 +1,28 @@
+{% extends 'hp/base.html' %}
+{% block title %}Make Appointment{% endblock %}
+
+{% block body %}
+<h2 style="text-align:center"><b>Appointment</h2>
+<font size="4"><b>
+<form method="post">
+	{% csrf_token %}
+		<!-- <label for="user">Patient Identity: </label> -->
+		<!-- <select id="user" name="user"> -->
+		<!-- {% for x in all_users %} -->
+				<!-- {% if x.profile.profession == 'Patient' %} -->
+				<!-- <option value='{{ x.username }}'>{{ x.profile.name }}</option> -->
+				<!-- {% endif %} -->
+		<!-- {% endfor %} -->
+		</select>
+		<br><br>
+
+		<label for="a_date">Appointment Date:</label>
+			<input type="date" id="a_date" name="a_date">
+		<br><br>
+
+		<label for="illness">Illness/Message :</label><br>
+		<textarea name="illness" id="illness" cols="50" rows="20"></textarea>
+		<br><br>
+		<input type="submit" value="Enter"/>
+	</form>
+{% endblock %}

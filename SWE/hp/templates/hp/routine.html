@@ -1,0 +1,21 @@
+{% extends 'hp/base.html' %}
+
+{% block title %} Routine {% endblock %}
+
+<!-- all = user.schedule_set.all -->
+<section>
+	<article>
+{% block body %}
+	<h1 style="color: yellow; text-align:center" ><b>  {{ user.profile.name }}</h1>
+	<h2 style="text-align:center"><b> Your Routine for today :</h2><br>
+	{% for s in user.routine_set.all %}
+
+		<!-- <h3>{{ s.work }} : <time>{{ s.work_time }}</time> : {{ s.work_date }}</h3> -->
+		<!-- <br> -->
+		<h3>{{ s }}</h3>
+	{% endfor %}
+	<br>
+<marquee><h3 style="color: #af0000" ><b><i>That's all for today</h3></marquee>
+</article>
+</section>
+{% endblock %}

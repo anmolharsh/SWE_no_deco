@@ -1,0 +1,207 @@
+<body>
+	<style type="text/css" >
+ 
+ .example_f {
+   border-radius: 2px;
+   background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+   border: none;
+   border-radius: 30px;
+   color: #FFFFFF;
+   text-align: center;
+   /*text-decoration: none;*/
+   /*text-transform: uppercase;*/
+   font-variant: small-caps;
+   font-size: 20px;
+   padding: 20px 34px ;
+   width: 200px;
+   transition: all 0.2s;
+   cursor: pointer;
+   opacity: 1;
+   margin: 5px;
+ }
+ .example_f span {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   transition: 0.3s;
+ }
+ .example_f span:after {
+   /*content: '\00bb';*/
+   content: '>>' ;
+   position: absolute;
+   opacity: 0;
+   top: 0;
+   right: -1000px;
+   transition: 0.15s;
+ }
+ .example_f:hover span {
+   padding-right: 25px;
+ }
+ .example_f:hover span:after {
+   opacity: 1;
+   right: 0;
+ }
+
+
+
+
+
+
+
+
+
+
+/* Create two columns/boxes that floats next to each other */
+
+
+article {
+  float: right;
+  padding: 20px;
+  width: 70%;
+  background-color: #000000;
+  color: white ;
+  height: 300px; /* only for demonstration, should be removed */
+    border-radius: 15px;
+
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  float=left;
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  align-self: center;
+  background-color: pink;
+  padding: 2px;
+  text-align: center;
+  color: black;
+  font-variant: small-caps;
+  border-radius: 5px ;
+}
+
+
+
+
+
+
+
+.example_e {
+border: none;
+background: #ff0000;
+color: #ffffff !important;
+font-weight: 100;
+padding: 20px;
+text-transform: uppercase;
+border-radius: 6px;
+/*display: inline-block;*/
+transition: all 0.24s ease 0s;
+}
+
+.example_e:hover {
+color: #000000 !important;
+font-weight: 700 !important;
+letter-spacing: 3px;
+background: #00ff00;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.22s ease 0s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<section>
+
+
+<article>
+  <!-- <img src="media/doctor1.jpeg" class="img-responsive"> -->
+  <h2 style="color: #00ff00">{{ user.profile.profession }}</h2>
+  <h1 style="color: yellow"> {{ user.profile.name }}</h1>
+  <br>  
+  <h3 style="color: #ffffff">{{ user.profile.gender }}</h3>
+  <br>
+  
+
+</article>
+
+
+
+  <nav>
+    <ul>
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:routine' %}" target="" rel="nofollow"><span>View Routine</a></div>
+        <br>
+        <br>
+    
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:makeComplaint' %}" target="" rel="nofollow"><span>Make a Complaint</a></div>
+        <br>
+        <br>
+
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:visitor' %}" target="" rel="nofollow"><span>View Visitors</a></div>
+        <br>
+        <br>
+
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:viewComplaint' %}" target="" rel="nofollow"><span>View Complaint Status</a></div>
+        <br>
+        <br>
+
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:deleteComplaint' %}" target="" rel="nofollow"><span>Delete Complaint</a></div>
+        <br>
+        <br>
+
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:makeAppointment' %}" target="" rel="nofollow"><span>Create Appointment</a></div>
+        <br>
+        <br>
+
+    <div class="button_cont" ><a class="example_f" href="{% url 'hp:viewAppointment' %}" target="" rel="nofollow"><span>View Appointment</a></div>
+        <br>
+        <br>
+    <!-- <div class="button_cont" ><a class="example_e" href="#" target="_blank" rel="nofollow noopener">Add Call to Action</a></div> -->
+
+</ul>
+</nav>
+
+
+
+</section>
+
+
+<footer>
+  <marquee><h2>We care for you the same way you care for everyone !</h2></marquee>
+</footer>
+
+
+  <!-- <a href="{% url 'hp:schedule' %}">View Schedule</a> -->
+  <br>
+  <!-- <a href="{% url 'hp:applyLeave' %}">Apply for Leave</a> -->
+  <br>
+  <!-- <a href="{% url 'hp:mark' %}">Mark Attendence</a> -->
+  <br>
+  <!-- <a href="{% url 'hp:viewLeave' %}">View Leave</a> -->
+  <br>
+  <!-- <a href="{% url 'hp:deleteLeave' %}">Delete Leave</a> -->
+  <br>
+
+
+
+</body>

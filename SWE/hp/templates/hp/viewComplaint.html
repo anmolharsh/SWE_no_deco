@@ -1,0 +1,33 @@
+{% extends 'hp/base.html' %}
+{% block title %}Complaints{% endblock %}
+
+{% block body %}
+<h1 size="30" style=" color: yellow; text-align:center"><b>{{ user.profile.name }} : Your Complaints :</h1></b><br><br>
+<font color="#yellow" size="4" >
+{% for x in all_complaint %}
+    {{ x.complaint_time }}
+    <br>
+    {{ x.issue }}
+    <br>
+
+    {% if x.complaint_status == 'Attended' %}
+    <font size="4" color="#green" >
+    {{ x.complaint_status }}
+	</font>
+    <br>
+    {% else %}
+    <font size="4" color="#ff0000" >
+    {{ x.complaint_status }}
+	</font>
+    <br>
+    {% endif %}
+
+    <font color="#yellow" >
+    {{ x.reply }}
+    <!-- {{ x.complaint_status }} -->
+	</font>
+    <br>
+
+    <br><br>
+{% endfor %}
+{% endblock %}

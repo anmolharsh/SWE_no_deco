@@ -1,0 +1,20 @@
+{% extends 'hp/base.html' %}
+{% block title %}View Appointments{% endblock %}
+
+{% block body %}
+<h1 style="color: yellow; text-align:center" ><b>  {{ user.profile.name }}</h1>
+    <h2 style="text-align:center"><b> Your Appointments :</h2><br>
+    <font size="4"><b>
+	{% csrf_token %}
+{% for x in user.appointment_set.all %}
+    {{ x.illness }}
+    <br>
+    {{ x.a_date }}
+    <br>
+    {{ x.appointment_status }}
+    <br>
+    Remarks: {{ x.remarks }}
+
+    <br><br>
+{% endfor %}
+{% endblock %}

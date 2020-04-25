@@ -1,0 +1,19 @@
+{% extends 'hp/base.html' %}
+
+{% block title %} Visitors {% endblock %}
+
+<!-- all = user.schedule_set.all -->
+{% block body %}
+	<h1 size="30" style=" color: yellow; text-align:center"><b>{{ user.profile.name }} : Your Visitors :</h1></b><br><br>
+	<font size="5" >
+	{% for s in all_visitors %}
+
+		Checkin: {{ s.checkin }}<br>
+		Checkout: {{ s.checkout }}<br>
+		Number of Visitors: {{ s.number }}<br>
+		Details: {{ s.visitor_details }}<br>
+		<br><br>
+		<!-- <h4>{{ s }}</h4> -->
+	{% endfor %}
+</font>
+{% endblock %}

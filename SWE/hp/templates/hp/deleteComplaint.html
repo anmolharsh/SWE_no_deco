@@ -1,0 +1,27 @@
+{% extends 'hp/base.html' %}
+{% block title %}Delete Complaint{% endblock %}
+
+{% block body %}
+<h1 style="color: yellow; text-align:center; " ><b>  {{ user.profile.name }}</h1>
+    <h2 style="text-align:center"><b> Your Complaints</h2><br>
+<form method="post">
+	{% csrf_token %}
+        <font size="4" color="#yellow" >
+            <b>
+    <!-- </font> -->
+    <br>
+
+{% for x in all_complaint %}
+	<input type="radio" name="complaint_id" value="{{ x.id }}">
+    {{ x.complaint_time }} 
+    <br>
+    {{ x.issue }}
+    <br>
+    {{ x.complaint_status }}
+    <br>
+    {{ x.reply }}
+    <br><br>
+{% endfor %}
+<input type="submit" value="DELETE">
+	</form>
+{% endblock %}

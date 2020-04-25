@@ -1,0 +1,123 @@
+{% extends 'hp/base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    {% csrf_token %}
+
+<style type="text/css" >
+ .example_f {
+   border-radius: 2px;
+   background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+   border: none;
+   border-radius: 30px;
+   color: #FFFFFF;
+   text-align: center;
+   /*text-decoration: none;*/
+   /*text-transform: uppercase;*/
+   font-variant: small-caps;
+   font-size: 20px;
+   padding: 20px 34px ;
+   width: 200px;
+   transition: all 0.2s;
+   cursor: pointer;
+   opacity: 1;
+   margin: 5px;
+ }
+ .example_f span {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   transition: 0.2s;
+ }
+ .example_f span:after {
+   /*content: '\00bb';*/
+   content: '>>' ;
+   position: absolute;
+   opacity: 0;
+   top: 0;
+   right: -1000px;
+   transition: 0.2s;
+ }
+ .example_f:hover span {
+   padding-right: 25px;
+ }
+ .example_f:hover span:after {
+   opacity: 1;
+   right: 0;
+ }
+
+
+
+.example_e {
+border: none;
+background: #404040;
+color: #ffffff !important;
+font-weight: 100;
+padding: 20px;
+text-transform: uppercase;
+border-radius: 6px;
+display: inline-block;
+transition: all 0.3s ease 0s;
+}
+
+.example_e:hover {
+color: #404040 !important;
+font-weight: 700 !important;
+letter-spacing: 3px;
+background: none;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.3s ease 0s;
+}
+
+
+h1{
+  font-family: 'Courier New' ;
+  font-size: 64px;
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+  <h1 style="color:blue" align="center">Welcome</h1>
+	
+  {% if user.profile.profession == "Doctor" %}
+    {% include 'hp/doctor_profile.html' %}
+  {% endif %}
+
+  {% if user.profile.profession == "Nurse" %}
+    {% include 'hp/doctor_profile.html' %}
+  {% endif %}
+
+  {% if user.profile.profession == "Staff" %}
+    {% include 'hp/doctor_profile.html' %}
+  {% endif %}
+
+  {% if user.profile.profession == 'Receiptionist' %}
+    {% include 'hp/receiption_profile.html' %}
+  {% endif %}
+
+  {% if user.profile.profession == 'Patient' %}
+    {% include 'hp/patient_profile.html' %}
+  {% endif %}
+
+  {% if user.profile.profession == '' %}
+  	<h1 style="color:red" align="center" ><b>First enter your Information</b></h1>
+    <br><br>
+
+  	<!-- <a href="/enter">Enter</a> -->
+    <div class="button_cont" align="center"><a class="example_f" href="{% url 'hp:enter' %}" target="" rel="nofollow"><span>Enter</a></div>
+        <br>
+        <br>
+
+    <!-- <div class="button_cont" align="center"><a class="example_e" href="#" target="_blank" rel="nofollow noopener">Add Call to Action</a></div> -->
+
+  {% endif %}
+{% endblock %}

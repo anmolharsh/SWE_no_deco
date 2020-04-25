@@ -1,0 +1,27 @@
+{% extends 'hp/base.html' %}
+{% block title %}Delete Leave{% endblock %}
+
+{% block body %}
+<form method="post">
+	{% csrf_token %}
+{% for x in all_leaves %}
+	<input type="radio" name="leave_id" value="{{ x.id }}">
+    <b>
+	<font style="color: #000" size="5" >
+    {{ x.from_date }} -> {{ x.to_date }}
+    </font>
+    <br>
+
+    <font size= "3">{{ x.reason }}
+	</font>
+    <br>
+
+    <font style="color: #000" size="5" >
+    {{ x.grant_status }}
+    </font>
+
+    <br><br>
+{% endfor %}
+<input type="submit" value="DELETE">
+	</form>
+{% endblock %}

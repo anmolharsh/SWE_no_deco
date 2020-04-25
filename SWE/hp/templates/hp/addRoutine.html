@@ -1,0 +1,32 @@
+{% extends 'hp/base.html' %}
+{% block title %}Add Routine{% endblock %}
+
+{% block body %}
+<font size="4"><b>
+<form method="post">
+	{% csrf_token %}
+		<label for="user">Patient Identity: </label>
+		<select id="user" name="user">
+		{% for x in all_users %}
+				{% if x.profile.profession == 'Patient' %}
+				<option value='{{ x.username }}'>{{ x.profile.name }}</option>
+				{% endif %}
+		{% endfor %}
+		</select>
+		<br><br>
+
+		<label for="routine_date">Routine Date:</label>
+			<input type="date" id="routine_date" name="routine_date">
+		<br><br>
+		<label for="routine_time">Routine Time:</label>
+			<input type="time" id="routine_time" name="routine_time">
+			<br><br>
+
+		<label for="routine">Routine :</label><br>
+		<textarea name="routine" id="routine" cols="50" rows="20"></textarea>
+		<br><br>
+
+		<input type="submit" value="Enter"/>
+	</form>
+<!-- <h2>You have been marked for today</h2> -->
+{% endblock %}

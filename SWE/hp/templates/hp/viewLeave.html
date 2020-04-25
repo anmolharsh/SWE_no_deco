@@ -1,0 +1,36 @@
+{% extends 'hp/base.html' %}
+{% block title %}Leave Applications{% endblock %}
+
+{% block body %}
+<h1 style="color: #00a500" ><b><u>Your Leave Status:</u></b> </h1><br>
+{% for x in all_leaves %}
+    <font style="color: #000" size="5" >
+    <b>{{ x.from_date }} -> {{ x.to_date }}</b>
+    <br></font>
+
+    <font style="color: #ff0" size="4" >
+    {{ x.reason }}
+	</font><br>    	
+    
+    {% if x.grant_status == 'Not Answered'  %}
+    <font style="color: #0" size="5" >
+    <b>{{ x.grant_status }}</b>
+	{% endif %}
+    
+    {% if x.grant_status == 'Granted'  %}
+    <font style="color: #00ff00" size="5" >
+    	<b><u>{{x.grant_status}}</u></b>
+	</font>
+	{% endif %}
+
+    {% if x.grant_status == 'Not Granted'  %}
+	<font style="color: #ff0000" size="5" >
+    <b>	{{x.grant_status}}</b>
+	</font>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    </font>
+{% endfor %}
+{% endblock %}

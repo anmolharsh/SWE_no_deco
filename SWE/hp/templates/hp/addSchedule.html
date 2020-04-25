@@ -1,0 +1,31 @@
+{% extends 'hp/base.html' %}
+{% block title %}Add Schedule{% endblock %}
+
+{% block body %}
+<font size="4"><b>
+<form method="post">
+	{% csrf_token %}
+		<label for="user">Hospital Member Identity: </label>
+		<select id="user" name="user">
+		{% for x in all_users %}
+				{% if x.profile.profession != 'Patient' %}
+				<option value='{{ x.username }}'>{{ x.profile.name }}</option>
+				{% endif %}
+		{% endfor %}
+		</select>
+		<br>
+		<br>
+		<label for="work_date">Work Date:</label>
+			<input type="date" id="work_date" name="work_date">
+		<br>
+		<br>
+		<label for="work_time">Work Time:</label>
+			<input type="time" id="work_time" name="work_time">
+			<br><br>
+		<label for="work">Work:</label>
+			<input type="text" id="work" name="work">
+			<br><br>
+		<input type="submit" value="Enter"/>
+	</form>
+<!-- <h2>You have been marked for today</h2> -->
+{% endblock %}

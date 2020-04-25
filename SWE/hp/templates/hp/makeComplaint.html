@@ -1,0 +1,24 @@
+{% extends 'hp/base.html' %}
+{% block title %}Make Complaint{% endblock %}
+
+{% block body %}
+
+<form method="post">
+	{% csrf_token %}
+		<!-- <label for="user">Patient Identity: </label> -->
+		<!-- <select id="user" name="user"> -->
+		<!-- {% for x in all_users %} -->
+				<!-- {% if x.profile.profession == 'Patient' %} -->
+				<!-- <option value='{{ x.username }}'>{{ x.profile.name }}</option> -->
+				<!-- {% endif %} -->
+		<!-- {% endfor %} -->
+		</select>
+		<br><br>
+
+		<label for="issue"><font size="5"><b>Issue :</label><br>
+		<textarea name="issue" id="issue" cols="50" rows="20"></textarea>
+		<br><br>
+
+		<input type="submit" value="Enter"/>
+	</form>
+{% endblock %}

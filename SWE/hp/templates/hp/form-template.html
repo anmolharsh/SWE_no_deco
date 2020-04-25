@@ -1,0 +1,50 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'hp/style.css' %}" />
+<style type="text/css">
+	.example_f {
+   border-radius: 2px;
+   background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+   border: none;
+   color: #FFFFFF;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 22px;
+   padding: 20px;
+   width: 170px;
+   transition: all 0.2s;
+   cursor: pointer;
+   opacity: 10;
+   margin: 5px;
+ }
+ .example_f span {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   transition: 0.2s;
+ }
+ .example_f span:after {
+   content: '\00bb';
+   position: absolute;
+   opacity: 0;
+   top: 0;
+   right: -20px;
+   transition: 0.2s;
+ }
+ .example_f:hover span {
+   padding-right: 5px;
+ }
+ .example_f:hover span:after {
+   opacity: 1;
+   right: 0;
+ }
+</style>
+{% for field in form %}
+	<div class="form-group " >
+		<div class="col-sm-offset-2 col-sm-10 ">
+			<span class="text-danger small">
+				{{ field.error }}</span>
+		</div>
+		<label class="control-label col-sm-2">{{ field.label_tag }}</label>
+		<div class="col-sm-10 ">{{ field }}</div>
+	</div>
+{% endfor %}

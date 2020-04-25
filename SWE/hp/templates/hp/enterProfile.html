@@ -1,0 +1,59 @@
+{% extends 'hp/base.html' %}
+{% block title %}Enter Application{% endblock %}
+
+{% block body %}
+	
+<div class="container">
+  <form method="post">
+    <div class="row">
+      <h2 style="text-align:center"><b>Enter Info</b></h2>
+
+    {% csrf_token %}
+        <!-- <label for="from_date">From Date:</label> -->
+			<!-- <input type="date" id="from_date" name="from_date">  -->
+
+		<!-- <label for="to_date">To Date:</label> -->
+			<!-- <input type="date" id="to_date" name="to_date">  -->
+      <label for="user_id">Username: </label><br>
+         <select id="user_id" name="user_id">
+          <option value="{{ user }}">{{ user }}</option>
+        </select>
+      <br>
+      <label for="name">Name:</label>
+      <br>
+      <input type="text" id="name" name="name" ></textarea>
+      <br>
+      <label for="profession">Profession: </label><br>
+         <select id="profession" name="profession">
+          <option value='Doctor'>Doctor</option>
+          <option value="Nurse">Nurse</option>
+          <option value="Patient">Patient</option>
+          <option value='Receiptionist'>Receiptionist</option>
+          <option value='Staff'>Staff</option>
+         </select>
+      <br>
+      <label for="gender">Gender: </label><br>
+         <select id="gender" name="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+         </select>
+      <br>
+      <label for="work_area">Work Area:</label>
+      <br>
+      <input type="text" id="work_area" name="work_area" ></textarea>
+      <br>
+      <label for="room">Room:</label>
+      <br>
+      <input type="text" id="room" name="room" ></textarea>
+      <br>
+      <br>
+      <br>
+      <input type="submit" value="Apply">
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+{% endblock %}

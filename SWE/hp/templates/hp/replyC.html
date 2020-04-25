@@ -1,0 +1,98 @@
+{% extends 'hp/base.html' %}
+{% block title %}Reply C{% endblock %}
+
+{% block body %}
+
+<style type="text/css" >
+ 
+ .example_f {
+   /*border-radius: 2px;*/
+   background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+   border: none;
+   border-radius: 1px;
+   color: #FFFFFF;
+   text-align: center;
+   font-size: 2px;
+   /*text-decoration: none;*/
+   /*text-transform: uppercase;*/
+   font-variant: small-caps;
+   font-size: 22px;
+   padding: 4px 5px ;
+   width: 20px;
+   transition: all 0.2s;
+   cursor: pointer;
+   opacity: 1;
+   margin: 5px;
+ }
+ .example_f span {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   transition: 0.3s;
+ }
+ .example_f span:after {
+   /*content: '\00bb';*/
+   content: '>>' ;
+   position: absolute;
+   opacity: 0;
+   top: 0;
+   right: -1000px;
+   transition: 0.15s;
+ }
+ .example_f:hover span {
+   padding-right: 25px;
+ }
+ .example_f:hover span:after {
+   opacity: 1;
+   right: 0;
+ }
+
+</style>
+
+<h1 style="color: green; text-align:center;" ><b> Edit Reply/Status: </h1></b>
+
+<font size="4" ><b>
+<form method="post" >
+	{% csrf_token %}
+
+	<!-- <input type="radio" name="complaint_id" value="{{ x.id }}"> -->
+    
+    Complaint Date/Time:
+    <font size="4" color="#000cdd">
+    {{ c.complaint_datetime }}
+    <br>
+    </font>
+    
+    Issue:
+    <font size="4" color="#000cdd">
+    {{ c.issue }}
+    </font>
+    <br>
+    
+    Status:
+    <font color="#000cdd">
+    {{ c.complaint_status }}
+    </font>
+   	<br>
+    
+    Reply:
+    <font color="#000cdd">
+    {{ c.reply }}    
+    </font> 
+    <br><br>
+    
+    <!-- <font color="#000cdd"> -->
+    <label for="reply">Reply : </label><br>
+        <textarea name="reply" id="reply" cols="50" rows="20"></textarea>
+        <br><br>
+    
+    <font color="#yellow">
+    <label for="complaint_status" >Status: </label></font><br>
+    <select id="complaint_status" name="complaint_status">
+            <option value="Attended">Attended</option>
+            <option value="Not Attended">Not Attended</option>
+    </select>
+    <input type="submit" value="SUBMIT">
+	</form>
+
+{% endblock %}

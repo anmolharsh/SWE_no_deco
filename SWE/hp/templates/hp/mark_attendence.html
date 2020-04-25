@@ -1,0 +1,36 @@
+{% extends 'hp/base.html' %}
+{% block title %}Enter Application{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="css/style.css">
+<section>
+<article>
+	
+{% if y %}
+<form method="post">
+	{% csrf_token %}
+
+		<h2><b><label style="color: black" for="username">Your Identity: </label></h2><br>
+		<select style="color: #cc0000" id="username" name="username">
+				<option value="{{ user }}">{{ user.username }}</option>
+		</select>
+		<br>
+		<br>
+		<br>
+		<h2><label style=" color: #009900" for="status">Status: </label></h2><br>
+		<select id="status" name="status">
+				<option style="background-color:green" value="Present">Present</option>
+				<option style="color: #ff0000" value="Absent">Absent</option>
+		</select>
+		<br>
+		<br>
+		<br>
+		<br>
+		<input type="submit" value="MARK"/>
+	</form>
+{% else %}
+	<marquee> <h4><b><i> Your attendence has been marked as Present for today </h4> </marquee>
+<h1 style="color: #90ff09"><b>You have been marked for today</h1>
+{% endif %}
+</article>
+{% endblock %}

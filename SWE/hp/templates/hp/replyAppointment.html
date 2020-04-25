@@ -1,0 +1,139 @@
+{% extends 'hp/base.html' %}
+{% block title %}Reply Appointment{% endblock %}
+
+{% block body %}
+<style type="text/css" >
+ 
+ .example_f {
+   /*border-radius: 2px;*/
+   background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+   border: none;
+   border-radius: 1px;
+   color: #FFFFFF;
+   text-align: center;
+   font-size: 2px;
+   /*text-decoration: none;*/
+   /*text-transform: uppercase;*/
+   font-variant: small-caps;
+   font-size: 22px;
+   padding: 4px 5px ;
+   width: 20px;
+   transition: all 0.2s;
+   cursor: pointer;
+   opacity: 1;
+   margin: 5px;
+ }
+ .example_f span {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   transition: 0.3s;
+ }
+ .example_f span:after {
+   /*content: '\00bb';*/
+   content: '>>' ;
+   position: absolute;
+   opacity: 0;
+   top: 0;
+   right: -1000px;
+   transition: 0.15s;
+ }
+ .example_f:hover span {
+   padding-right: 25px;
+ }
+ .example_f:hover span:after {
+   opacity: 1;
+   right: 0;
+ }
+
+
+
+
+
+
+
+
+
+
+/* Create two columns/boxes that floats next to each other */
+
+
+article {
+  float: right;
+  padding: 20px;
+  width: 70%;
+  background-color: #000000;
+  color: white ;
+  height: 300px; /* only for demonstration, should be removed */
+    border-radius: 2px;
+
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  float=left;
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  align-self: center;
+  background-color: pink;
+  padding: 2px;
+  text-align: center;
+  color: black;
+  font-variant: small-caps;
+  border-radius: 1px ;
+}
+
+
+
+
+
+
+
+.example_e {
+border: none;
+background: #ff0000;
+color: #ffffff !important;
+font-weight: 100;
+padding: 20px;
+text-transform: uppercase;
+border-radius: 2px;
+/*display: inline-block;*/
+transition: all 0.24s ease 0s;
+}
+
+.example_e:hover {
+color: #000000 !important;
+font-weight: 700 !important;
+letter-spacing: 3px;
+background: #00ff00;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.22s ease 0s;
+}
+
+
+</style>
+<h1 style="color: #yellow; text-align:center" ><b><u>Reply Appointments:</u></b></h1>
+{% for x in all %}
+    <font size="4" ><b>
+    Date: {{ x.a_date }}
+    <br>
+    Message: {{ x.illness }}
+    <br>
+    Status: {{ x.appointment_status }}
+   	<br>
+    Remarks: {{ x.remarks }}    
+    <br><br>
+        </b>
+    </font>
+    <div class="button_cont" ><a class="example_f" href="/replyAppointment/replyA/{{ x.id }}" target="" rel="nofollow"><span>Reply</a></div>
+        <br>
+        <br>
+{% endfor %}
+
+{% endblock %}
